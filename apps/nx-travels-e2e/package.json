@@ -1,0 +1,26 @@
+{
+  "name": "@nx-travels/nx-travels-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@nx-travels/nx-travels"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/nx-travels-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@nx-travels/nx-travels:build",
+          "@nx-travels/nx-travels:serve"
+        ]
+      }
+    }
+  }
+}
